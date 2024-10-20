@@ -63,8 +63,19 @@ fi
 # Initialize the index.html file
 INDEX_FILE="$OUTPUT_BASE_DIR/index.html"
 { 
-    echo "<html><head><title>Reports</title></head><body>"
-    echo "<h1>List of reports</h1><ul>"
+    echo "<html><head><title>Reports</title>"
+    echo '<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { color: #333; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin-bottom: 10px; }
+    a { text-decoration: none; color: #1a73e8; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 600px; margin: left; }
+    </style>'
+    echo "</head><body>"
+    echo '<div class="container">'
+    echo "<h2>List of reports</h2><ul>"
 } > "$INDEX_FILE"
 log_debug "Initialized $INDEX_FILE"
 
@@ -86,5 +97,5 @@ else
 fi
 
 # Close the HTML tags in the index file
-echo "</ul></body></html>" >> "$INDEX_FILE"
+echo '</ul></div></body></html>' >> "$INDEX_FILE"
 log_debug "Completed index file $INDEX_FILE"
