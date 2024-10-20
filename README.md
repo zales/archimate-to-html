@@ -2,6 +2,13 @@
 
 This project automates the generation of HTML reports from `.archimate` files using a Docker-based CI/CD pipeline in GitLab. The generated reports are deployed on GitLab Pages, making them readily accessible for review and sharing.
 
+## Project Repository
+
+The project is hosted on GitLab and can be accessed at the following link: [Archi HTML Report Generator on GitLab](https://gitlab.com/o.zalesky/archimate2html).
+
+- **CI/CD Pipeline**: You can view the details of our continuous integration and deployment pipeline.
+- **GitLab Pages**: The deployed HTML reports are accessible via GitLab Pages.
+
 ## Features
 
 - **Automated Docker Image Creation**: Builds Docker images that include the necessary toolset for generating HTML reports.
