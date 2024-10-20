@@ -63,8 +63,8 @@ fi
 # Initialize the index.html file
 INDEX_FILE="$OUTPUT_BASE_DIR/index.html"
 { 
-    echo "<html><head><title>Reporty</title></head><body>"
-    echo "<h1>Seznam reportů</h1><ul>"
+    echo "<html><head><title>Reports</title></head><body>"
+    echo "<h1>List of reports</h1><ul>"
 } > "$INDEX_FILE"
 log_debug "Initialized $INDEX_FILE"
 
