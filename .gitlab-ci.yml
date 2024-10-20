@@ -1,8 +1,15 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay2
+
 stages:
   - build
   - pages
 
 build_and_push:
+  services:
+    - docker:dind
   stage: build
   script:
     - docker build -t $CI_REGISTRY_IMAGE:latest .
