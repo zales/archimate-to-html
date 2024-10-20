@@ -23,9 +23,11 @@ function log_error() {
 # Function to generate HTML report for a given .archimate file
 generate_report() {
     local model_file="$1"
+    local dir_name
     local base_name
-    base_name=$(basename "$model_file" .archimate)
-    local output_dir="$OUTPUT_BASE_DIR/$base_name"
+    dir_name=$(basename "$(dirname "$model_file")")  # Get folder name
+    base_name=$(basename "$model_file" .archimate)   # Get file base name
+    local output_dir="$OUTPUT_BASE_DIR/${dir_name}_${base_name}"
 
     # Create the output directory if it doesn't exist
     mkdir -p "$output_dir" || {
