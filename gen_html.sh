@@ -41,9 +41,9 @@ generate_report() {
     # Check if the report was generated successfully
     if [ $? -eq 0 ]; then
         # Add link to the index file
-        echo "<li><a href=\"$base_name/index.html\">$base_name</a></li>" >> "$INDEX_FILE"
-        log_debug "Added link to index: $base_name/index.html"
-        echo "Generated report for $base_name in $output_dir"
+        echo "<li><a href=\"${dir_name}_${base_name}/index.html\">${dir_name}_${base_name}</a></li>" >> "$INDEX_FILE"
+        log_debug "Added link to index: ${dir_name}_${base_name}/index.html"
+        echo "Generated report for ${dir_name}_${base_name} in $output_dir"
     else
         log_error "Error generating report for $model_file. Check $output_dir/report.log for details."
     fi
@@ -80,6 +80,7 @@ INDEX_FILE="$OUTPUT_BASE_DIR/index.html"
 log_debug "Initialized $INDEX_FILE"
 
 # Find all .archimate files and process them
+IFS=$'\n'  # Set Internal Field Separator to newline to handle spaces in filenames correctly
 archimates=$(find "$BASE_DIR" -type f -name "*.archimate" || true)
 
 if [ -z "$archimates" ]; then
